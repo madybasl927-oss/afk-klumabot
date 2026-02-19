@@ -1,0 +1,16 @@
+const mineflayer = require('mineflayer')
+
+const bot = mineflayer.createBot({
+  host: 'IP_سيرفرك', // حط هنا IP من Aternos
+  port: 25565,
+  username: 'AFK_Bot_24h'
+})
+
+bot.on('spawn', () => {
+  console.log('Bot joined!')
+  
+  setInterval(() => {
+    bot.setControlState('jump', true)
+    setTimeout(() => bot.setControlState('jump', false), 500)
+  }, 60000)
+})
